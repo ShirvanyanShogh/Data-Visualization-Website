@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from decimal import Decimal
+import numpy as np
 
 
 class Dashboard:
@@ -26,32 +27,39 @@ class Dashboard:
         duration_avg = 0
         cost_total = 0
         if self.ok:
-            print(self.df)
             energy_total = self.df['energy'].sum()
             energy_sum = f"{round(energy_total):,}"
             energy_avg = f"{round(self.df['energy'].mean()):,}"
             session_count = self.df['sessionId'].count()
-            duration_avg = pd.to_timedelta(self.df['duration']).mean()
-            duration_avg = str(duration_avg)[7:]
+            duration_avg = (pd.to_timedelta(self.df['duration']).mean()).\
+                floor('s')
+            if duration_avg.days == 0:
+                duration_avg = str(duration_avg).split()[2]
+
             cost_total = energy_total * Decimal(self.price)
 
         return energy_sum, energy_avg, session_count, duration_avg, cost_total
 
-    def key_chart(self):
+    def pie_chart(self):
+        energy_per_key = {}
+        energy_per_user = {}
+        energy_per_connector = {}
+        energy_per_day = {}
         if self.ok:
-            keyid_enerygy = \
+            energy_per_key = \
                 dict(self.df.groupby(self.df['keyIdentifier']).sum()['energy'])
-            labels = list(keyid_enerygy.keys())
-            sizes = list(keyid_enerygy.values())
-            colors = ['#ff9999', '#66b3ff', '#99ff99', '#ffcc99']
-            plt.pie(sizes, colors=colors, labels=labels, autopct='%1.1f%%',
-                     startangle=90, pctdistance=0.85)
-            centre_circle = plt.Circle((0, 0), 0.70, fc='white')
-            fig = plt.gcf()
-            fig.gca().add_artist(centre_circle)
-            plt.tight_layout()
-            path = os.path.join(os.path.dirname(os.path.dirname(__file__)),
-                                "static", 'images', "keypiechart.png")
-            # os.remove(path)
-            plt.savefig(path)
+            energy_per_user = \
+                dict(self.df.groupby(self.df['userId']).sum()['energy'])
+            energy_per_connector = \
+                dict(self.df.groupby(self.df['connectorId']).sum()['energy'])
+            start_date = pd.to_datetime(self.df['startTime'])
+            # energy_per_day = dict(self.df.groupby(start_date.dt.floor("d")).sum()['energy'])
+            energy_per_day = dict(self.df.groupby(start_date.dt.floor("d").
+                                                  dt.date).sum()['energy'])
 
+        return energy_per_key, energy_per_user, energy_per_connector, \
+               energy_per_day
+
+
+obj=Dashboard("February", "Eli Lilly LI CP1 002", "0.18")
+print(obj.numeric_data())

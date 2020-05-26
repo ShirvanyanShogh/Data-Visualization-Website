@@ -1,0 +1,63 @@
+{
+  "hugh.hall@epower.ie": {
+    "access": "ALL CHARGERS",
+    "password": "a399c96bc99365c4f59d6c96d74e7791c328cb0140ebde5c25508998f873dd7f",
+    "id": 1
+  },
+  "josef.tugwell@epower.ie": {
+    "access": "ALL CHARGERS",
+    "password": "2ef998e66269d5f4e3afe748a90d6faadbb5221d376329fef0a8b2188f00b838",
+    "id": 2
+  },
+  "douglas.hall@epower.ie": {
+    "access": "ALL CHARGERS",
+    "password": "1841849bcbbcc5cfce9e79cf6cc66e65d68bcc18b7be54dfafb270523d5532d4",
+    "id": 3
+  },
+  "admin@epower.ie": {
+    "access": "ALL CHARGERS",
+    "password": "9314e3b34dbaf229474020036bdfd44b88ffde1c2be47b901a3cc76cbecd63b7",
+    "id": 4
+  },
+  "marymount@epower.ie": {
+    "access": [
+      "Marymount CP1 001",
+      "Marymount CP1 002"
+    ],
+    "password": "c752a3cf3f505e51da218edaacfd1bef4567906d2601ff0cd9ac3b679eaf5367",
+    "id": 5
+  },
+  "lilly.littleisland@epower.ie": {
+    "access": [
+      "Eli Lilly LI CP1 001",
+      "Eli Lilly LI CP1 002",
+      "Eli Lilly LI CP1 003"
+    ],
+    "password": "92f53b02291c66e3f0c66680a6656e83bdeae974f5fb8e18c00b2f5ee62513c7",
+    "id": 6
+  },
+  "hovione.ringaskiddy@epower.ie": {
+    "access": [
+      "Hovione CP1 001",
+      "Hovione CP1 002",
+      "Hovione CP1 003",
+      "Hovione CP1 004"
+    ],
+    "password": "aff4169fd1e84acb9e5acad2a9607d598574f862769004c03f34eb595394d77b",
+    "id": 7
+  },
+  "shannahans@epower.ie": {
+    "access": [
+      "Shanahan Circle K CP1 001"
+    ],
+    "password": "b3ac34622a84f5fa4fc334fb2c5e9e213071becef9a51bc37f59124ee96d9a95",
+    "id": 8
+  },
+  "crestsolutions@epower.ie": {
+    "access": [
+      "Crest CP1 001"
+    ],
+    "password": "84ef2cdaec7b340df298b7e693b96164e034ff2ecd626589f82a95fb1bf97825",
+    "id": 9
+  }
+}

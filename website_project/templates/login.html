@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Gentelella Alela! | </title>
+    <title>Company Name | </title>
 
     <!-- Bootstrap -->
     <link href="../static/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,6 +25,19 @@
   <body class="login">
       <div class="login_wrapper">
         <div class="animate form login_form">
+
+        <div>
+          {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+         </div>
+
           <section class="login_content">
             <form method="POST" action="">
               {{ form.hidden_tag() }}
@@ -54,21 +67,18 @@
                     {{ form.password(class="form-control", placeholder="Password") }}
                 {% endif %}
               </div>
+
               <div class="form-check">
                 {{ form.remember(class="form-check-input") }}
                 {{ form.remember.label(class="form-check-label") }}
-              </div>
-              <div>
+
+                <!-- <a class="reset_pass" href="#">Forgot Password?</a> -->
                 {{ form.submit(class="btn btn-default") }}
-                <a class="reset_pass" href="#">Forgot Password?</a>
               </div>
 
               <div class="clearfix"></div>
 
               <div class="separator">
-                <p class="change_link">Need an Account?
-                  <a href="{{ url_for('register') }}" class="to_register"> Create Account </a>
-                </p>
 
                 <div class="clearfix"></div>
                 <br />

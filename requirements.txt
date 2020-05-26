@@ -2,3 +2,4 @@ wtforms
 flask
 pandas
 flask_wtf
+email_validator

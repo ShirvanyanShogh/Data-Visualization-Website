@@ -7,26 +7,28 @@ class Dashboard:
     def __init__(self, month, year, name, price):
         self.month = month
         self.year = year
+        self.name = name
         self.price = price
         self.ok = False
         if month:
-            fname = ''.join([name.replace(" ", "-"), "-", month, ".csv"])
+            dir_name = name.replace(" ", "-")
+            fname = ''.join([dir_name, "-", month[0:3], "-", str(year), ".csv"])
             datafiles_path = os.path.join(
-                os.path.dirname(os.path.dirname(__file__)), "datafiles")
+                os.path.dirname(os.path.dirname(__file__)), "datafiles", dir_name)
             for filename in os.listdir(datafiles_path):
                 if filename.lower() == fname.lower():
-                    print(filename)
-                    # if fname in os.listdir(datafiles_path):
-                    self.ok = True
                     self.df = pd.read_csv(os.path.join(datafiles_path,filename))
-                    self.df['energy'] = \
-                        pd.to_numeric(self.df['energy'].str.replace(',', '.'))
+                    if not self.df.empty:
+                        self.ok = True
+                        self.df['energy'] = \
+                            pd.to_numeric(self.df['energy'].str.replace(',', '.'))
+                        self.month_number = datetime.strptime(self.month, "%B").month
 
     def numeric_data(self):
         energy_sum = 0
         energy_avg = 0
         session_count = 0
-        duration_avg = 0
+        duration_avg = pd.Timedelta('0 days 0 hours 0 minutes 0 seconds')
         cost_total = 0
         if self.ok:
             energy_total = self.df['energy'].sum()
@@ -35,12 +37,42 @@ class Dashboard:
             session_count = self.df['sessionId'].count()
             duration_avg = (pd.to_timedelta(self.df['duration']).mean()). \
                 floor('s')
-            if duration_avg.days == 0:
-                duration_avg = str(duration_avg).split()[2]
-
+            # if duration_avg.days == 0:
+            #     duration_avg = str(duration_avg).split()[2]
             cost_total = f"{(energy_total * float(self.price)):.2f}"
 
         return energy_sum, energy_avg, session_count, duration_avg, cost_total
+
+    def percentage_cal(self, energy_sum, energy_avg, session_count, duration_avg, cost_total):
+        energy_sum_per = 0
+        energy_avg_per = 0
+        session_per = 0
+        duration_per = 0
+        cost_per = 0
+        if self.ok:
+            if self.month == "January":
+                month = "December"
+                year = int(self.year) - 1
+            else:
+                month_number = self.month_number - 1
+                month = datetime.strptime(str(month_number), "%m").strftime("%B")
+                print(month)
+                year = self.year
+            dashboard_obj_last_month = Dashboard(month, year, self.name, self.price)
+            energy_sum_1, energy_avg_1, session_count_1, duration_avg_1, cost_total_1 = dashboard_obj_last_month.numeric_data()
+            energy_sum_per = self.percent(float(energy_sum_1), float(energy_sum))
+            energy_avg_per = self.percent(float(energy_avg_1), float(energy_avg))
+            session_per = self.percent(float(session_count_1), float(session_count))
+            duration_per = self.percent(duration_avg_1, duration_avg)
+            cost_per = self.percent(float(cost_total_1), float(cost_total))
+        return energy_sum_per, energy_avg_per, session_per, duration_per, cost_per
+
+    @staticmethod
+    def percent(last, current):
+        try:
+            return round(current / last * 100 - 100)
+        except ZeroDivisionError:
+            return 0
 
     def pie_chart(self):
         energy_per_key = {}
@@ -64,17 +96,16 @@ class Dashboard:
             energy_per_day_partial = \
                 self.df.groupby(start_date.dt.date).sum()['energy']
 
-            month_number = datetime.strptime(self.month[0:3], "%b").month
-            if month_number == 2 and int(self.year) % 4 == 0:
+            if self.month_number == 2 and int(self.year) % 4 == 0:
                 month_days = 29
-            elif month_number == 2 and int(self.year) % 4 != 0:
+            elif self.month_number == 2 and int(self.year) % 4 != 0:
                 month_days = 28
-            elif month_number in (1, 3, 5, 7, 8, 10, 12):
+            elif self.month_number in (1, 3, 5, 7, 8, 10, 12):
                 month_days = 30
-            elif month_number in (4, 6, 9, 11):
+            elif self.month_number in (4, 6, 9, 11):
                 month_days = 31
 
-            start_date = f"{int(self.year)}-{month_number}-01"  # ex. 2020-01-01
+            start_date = f"{int(self.year)}-{self.month_number}-01"  # ex. 2020-01-01
             data = pd.date_range(start=start_date, periods=month_days).date
             month_empty_data = pd.Series(0, data)
             energy_per_day = dict(
@@ -132,8 +163,10 @@ class Dashboard:
 
         return range_str
 
-
-# obj = Dashboard("February", 2020, "Eli Lilly LI CP1 002", "0.18")
-# # print(obj.numeric_data())
-# # print(obj.pie_chart())
-# # print(obj.energy_usage())
+#
+obj = Dashboard("January", 2020, "Eli Lilly LI CP1 001", "0.18")
+print(obj.numeric_data())
+x, y, z, f, k = obj.numeric_data()
+print(obj.percentage_cal(x, y, z, f, k))
+# # # print(obj.pie_chart())
+# print(obj.energy_usage())

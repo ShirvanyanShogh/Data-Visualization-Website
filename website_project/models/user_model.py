@@ -46,3 +46,7 @@ class User:
             return charging_station_names
         else:
             return access
+
+    @staticmethod
+    def get_company_name(email):
+        return db.get(email)['company_name']

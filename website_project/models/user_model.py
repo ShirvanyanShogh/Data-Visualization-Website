@@ -1,16 +1,9 @@
-# from website_project import db
+from website_project import db
 import hashlib
+import os
 
-# with open('salt') as salt_file:
-#     salt = salt_file.read()
-
-import json
-
-with open('users') as json_file:
-    db = json.load(json_file)
-
-
-salt = '2f546fa116533c013fceb653c20ef64f'
+with open(os.path.join('website_project', 'salt')) as salt_file:
+    salt = salt_file.read()
 
 
 class User:

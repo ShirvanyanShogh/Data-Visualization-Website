@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <!--added by me-->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <!--added by me-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -48,7 +49,7 @@
             <div class="navbar nav_title" style="border: 0;">
               <!-- <div class="profile clearfix"> -->
               <div class="profile clearfix">
-              <img src="static/images/epower.png"  height="50" width="225">
+              <img src="static/images/epower.png"  height="56" width="225">
               </div>
 
             </div>
@@ -145,7 +146,11 @@
                   <ul role="menu" class="dropdown-menu">
                     <option value="">Select Charging Station Name</option>
                     {% for name in names %}
-                    <option>{{ name }}</option>
+                      {% if name_chosen==name %}
+                      <option selected>{{ name }}</option>
+                      {% else %}
+                      <option>{{ name }}</option>
+                      {% endif %}
                     {% endfor %}
                   </ul>
                 </select>
@@ -164,7 +169,11 @@
                   <ul role="menu" class="dropdown-menu">
                     <option value="">Select Month</option>
                     {% for month in months %}
-                    <option>{{ month }}</option>
+                      {% if month_chosen==month %}
+                      <option selected>{{ month }}</option>
+                      {% else %}
+                      <option>{{ month }}</option>
+                      {% endif %}
                     {% endfor %}
                   </ul>
                 </select>
@@ -176,7 +185,11 @@
                 <select name = "year" data-toggle="dropdown" class="btn btn-default btn-block dropdown-toggle" aria-expanded="false" required>
                     <option value="">Select Year</option>
                     {% for year in years %}
-                    <option>{{ year }}</option>
+                      {% if year_chosen==year %}
+                      <option selected>{{ year }}</option>
+                      {% else %}
+                      <option>{{ year }}</option>
+                      {% endif %}
                     {% endfor %}
                 </select>
               </div>
@@ -201,48 +214,48 @@
           <!-- top tiles -->
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Energy</span>
+              <span class="count_top"><i class="fas fa-charging-station"></i> Total Energy</span>
               <h2 style='font-weight: bold;'>{{ energy_total }} kWh</h2>
               {% if energy_sum_per>=0 %}
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{energy_sum_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{energy_sum_per}}% </i> From Previous Month</span>
               {% else %}
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*energy_sum_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*energy_sum_per}}% </i> From Previous Month</span>
               {% endif %}
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Number of Sessions</span>
+              <span class="count_top"><i class="fa fa-tally"></i> Number of Sessions</span>
               <h2 style='font-weight: bold;'>{{ session_number }}</h2>
               {% if session_per>=0 %}
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{session_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{session_per}}% </i> From Previous Month</span>
               {% else %}
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*session_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*session_per}}% </i> From Previous Month</span>
               {% endif %}
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Cost of Energy</span>
+              <span class="count_top"><i class="fa fa-eur"></i> Total Cost of Energy</span>
               <h2 style='font-weight: bold;'><i class="green">€ {{ cost_total }}</i></h2>
               {% if cost_per>=0 %}
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{cost_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{cost_per}}% </i> From Previous Month</span>
               {% else %}
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*cost_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*cost_per}}% </i> From Previous Month</span>
               {% endif %}
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-clock-o"></i> Average Session Duration</span>
               <h2 style='font-weight: bold;'>{{ duration_avg }}</h2>
               {% if duration_per>=0 %}
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{duration_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{duration_per}}% </i> From Previous Month</span>
               {% else %}
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*duration_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*duration_per}}% </i> From Previous Month</span>
               {% endif %}
             </div>
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Average Energy Per Session</span>
+            <div class="col-md-3 col-sm-4 col-xs-6 tile_stats_count">
+              <span class="count_top"><i class="fas fa-charging-station"></i> Average Energy Per Session</span>
               <h2 style='font-weight: bold;'>{{ energy_avg }} kWh</h2>
               {% if energy_avg_per>=0 %}
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{energy_avg_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{energy_avg_per}}% </i> From Previous Month</span>
               {% else %}
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*energy_avg_per}}% </i> From last Month</span>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{(-1)*energy_avg_per}}% </i> From Previous Month</span>
               {% endif %}
             </div>
 
@@ -272,7 +285,7 @@
                                    "{{item}}",
                                   {% endfor %}],
                         datasets : [{
-                            label: "Energy",
+                            label: "Energy (kWh)",
                             data : [{% for item in energy_per_day.values() %}
                                       {{item}},
                                     {% endfor %}],
@@ -433,7 +446,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Energy by Per Key <small></small></h2>
+                    <h2>Usage by Key <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
                     <div class="clearfix"></div>
@@ -481,7 +494,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Energy by Per User <small></small></h2>
+                    <h2>Usage by Department <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
                     <div class="clearfix"></div>
@@ -533,7 +546,7 @@
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Energy by Per Connector <small></small></h2>
+                    <h2>Usage by Connector <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
                     <div class="clearfix"></div>

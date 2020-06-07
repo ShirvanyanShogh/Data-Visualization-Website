@@ -21,7 +21,8 @@ def dashboard():
         name = request.args.get('station_name')
         year = request.args.get('year')
         price = request.args.get('price')
-
+        if year != None:
+            year = int(year)
         dashboard_obj = Dashboard(month, year, name, price)
         energy_sum, energy_avg, session_count, duration_avg, cost_total \
             = dashboard_obj.numeric_data()
@@ -48,7 +49,9 @@ def dashboard():
                                energy_sum_per=energy_sum_per,
                                energy_avg_per=energy_avg_per,
                                session_per=session_per,
-                               duration_per=duration_per, cost_per=cost_per)
+                               duration_per=duration_per, cost_per=cost_per,
+                               name_chosen=name, month_chosen=month,
+                               year_chosen=year)
     else:
         return redirect(url_for('login'))
 

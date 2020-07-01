@@ -4,30 +4,40 @@ from datetime import datetime, timedelta
 
 
 class Dashboard:
-    def __init__(self, month, year, name, price):
+    def __init__(self, month, year, price, *name):
         self.month = month
         self.year = year
         self.name = name
         self.price = price
         self.ok = False
         if month:
-            dir_name = name.replace(" ", "-")
-            fname = ''.join(
-                [dir_name, "-", month[0:3], "-", str(year), ".csv"])
-            datafiles_path = os.path.join(
-                os.path.dirname(os.path.dirname(__file__)), "datafiles",
-                dir_name)
-            for filename in os.listdir(datafiles_path):
-                if filename.lower() == fname.lower():
-                    self.df = pd.read_csv(
-                        os.path.join(datafiles_path, filename))
-                    if not self.df.empty:
-                        self.ok = True
-                        self.df['energy'] = \
-                            pd.to_numeric(
-                                self.df['energy'].str.replace(',', '.'))
-                        self.month_number = datetime.strptime(self.month,
-                                                              "%B").month
+            file_names = []
+            for name in self.name:
+                dir_name = name.replace(" ", "-")
+                fname = ''.join(
+                    [dir_name, "-", month[0:3], "-", str(year), ".csv"])
+                datafiles_path = os.path.join(
+                    os.path.dirname(os.path.dirname(__file__)), "datafiles",
+                    dir_name)
+                for filename in os.listdir(datafiles_path):
+                    if filename.lower() == fname.lower():
+                        file_names.append(
+                            os.path.join(datafiles_path, filename))
+            try:
+                self.df = pd.concat([pd.read_csv(f) for f in file_names],
+                                    ignore_index=True)
+            # try:
+            #     self.df = pd.read_csv(
+            #         os.path.join(datafiles_path, filename))
+                if not self.df.empty:
+                    self.ok = True
+                    self.df['energy'] = \
+                        pd.to_numeric(
+                            self.df['energy'].str.replace(',', '.'))
+                    self.month_number = datetime.strptime(self.month,
+                                                          "%B").month
+            except:
+                pass
 
     def numeric_data(self):
         energy_sum = 0
@@ -64,8 +74,8 @@ class Dashboard:
                 month = datetime.strptime(str(month_number), "%m").strftime(
                     "%B")
                 year = self.year
-            dashboard_obj_last_month = Dashboard(month, year, self.name,
-                                                 self.price)
+            dashboard_obj_last_month = \
+                Dashboard(month, year, self.price, *self.name)
             (energy_sum_1, energy_avg_1,
              session_count_1, duration_avg_1, cost_total_1) \
                 = dashboard_obj_last_month.numeric_data()
@@ -178,9 +188,18 @@ class Dashboard:
         return range_str
 
 
+
 # obj = Dashboard("January", 2020, "Eli Lilly LI CP1 001", "0.18")
 # print(obj.numeric_data())
 # x, y, z, f, k = obj.numeric_data()
 # print(obj.percentage_cal(x, y, z, f, k))
-# # # print(obj.pie_chart())
+# print(obj.pie_chart())
 # print(obj.energy_usage())
+# obj = Dashboard("January", 2020, 0.1,
+#                          ['Rockgrove CP1 001', 'Marymount CP1 001',
+#                           'Marymount CP1 002', 'Eli Lilly LI CP1 001',
+#                           'Eli Lilly LI CP1 002', 'Eli Lilly LI CP1 003',
+#                           'Shannahan Circle K CP1 001', 'Hovione CP1 001',
+#                           'Hovione CP1 002', 'Hovione CP1 003',
+#                           'Hovione CP1 004', 'Crest CP1 001'])
+

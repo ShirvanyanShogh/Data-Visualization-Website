@@ -29,15 +29,17 @@ class User:
                                   "Marymount CP1 002", "Eli Lilly LI CP1 001",
                                   "Eli Lilly LI CP1 002",
                                   "Eli Lilly LI CP1 003",
-                                  "Shanahan Circle K CP1 001",
+                                  "Shannahan Circle K CP1 001",
                                   "Hovione CP1 001",
                                   "Hovione CP1 002", "Hovione CP1 003",
-                                  "Hovione CP1 004", "Crest CP1 001"]
+                                  "Hovione CP1 004", "Crest CP1 001",
+                                  "All Stations"]
 
         access = db.get(email)['access']
         if access == "ALL CHARGERS":
             return charging_station_names
         else:
+            access.append("All Stations")
             return access
 
     @staticmethod

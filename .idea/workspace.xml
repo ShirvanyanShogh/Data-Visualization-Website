@@ -20,7 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f784973-85c5-4b93-ac8b-f93b60c7d564" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Data-Visualization-Website.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data-Visualization-Website.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/application.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_project/models/dashboard_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/website_project/models/dashboard_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_project/models/user_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/website_project/models/user_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/website_project/routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/website_project/routes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/website_project/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/website_project/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,22 +55,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowPython Console.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ACA advanced python/Global/python-project" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../draft/6.15.2020/Data-Visualization-Website" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\website_project" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\website_project\datafiles" />
       <recent name="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\website_project" />
       <recent name="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\website_project\models" />
       <recent name="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website" />
       <recent name="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\website_project\forms" />
-      <recent name="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\website_project\static\images" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\website_project" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.registration">
+  <component name="RunManager" selected="Python.dashboard_model">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Data-Visualization-Website" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,49 +92,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="registration" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Data-Visualization-Website" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website_project" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website_project/registration.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Data-Visualization-Website" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\Shoghik\PycharmProjects\untitled\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website_project" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\run.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="application (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Data-Visualization-Website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -139,7 +104,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/application.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -148,7 +113,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="user_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="application" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Data-Visualization-Website" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\Shoghik\Desktop\Upwork_Python\Data-Visualization-Website\application.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="dashboard_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Data-Visualization-Website" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -160,7 +146,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website_project/models/user_model.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website_project/models/dashboard_model.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="routes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Data-Visualization-Website" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/website_project" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/website_project/routes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -171,10 +178,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.run" />
-        <item itemvalue="Python.registration" />
-        <item itemvalue="Python.user_model" />
-        <item itemvalue="Python.run (1)" />
+        <item itemvalue="Python.application (1)" />
+        <item itemvalue="Python.dashboard_model" />
+        <item itemvalue="Python.routes" />
+        <item itemvalue="Python.application" />
         <item itemvalue="Python.__init__" />
       </list>
     </recent_temporary>
@@ -205,33 +212,37 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="395" y="91" key="#Inspections" timestamp="1592134259811">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="395" y="91" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1592134259811" />
     <state x="484" y="8" key="#run_(1)" timestamp="1589440133658">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="484" y="8" key="#run_(1)/0.0.1536.824@0.0.1536.824" timestamp="1589440133658" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1590758093926">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1592244476044">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590758093926" />
-    <state width="1515" height="188" key="GridCell.Tab.0.bottom" timestamp="1591519466658">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1592244476044" />
+    <state width="1515" height="175" key="GridCell.Tab.0.bottom" timestamp="1593623921806">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="188" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1591519466658" />
-    <state width="1515" height="188" key="GridCell.Tab.0.center" timestamp="1591519466658">
+    <state width="1515" height="175" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1593623921806" />
+    <state width="1515" height="175" key="GridCell.Tab.0.center" timestamp="1593623921806">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="188" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1591519466658" />
-    <state width="1515" height="188" key="GridCell.Tab.0.left" timestamp="1591519466657">
+    <state width="1515" height="175" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1593623921806" />
+    <state width="1515" height="175" key="GridCell.Tab.0.left" timestamp="1593623921805">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="188" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1591519466657" />
-    <state width="1515" height="188" key="GridCell.Tab.0.right" timestamp="1591519466658">
+    <state width="1515" height="175" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1593623921805" />
+    <state width="1515" height="175" key="GridCell.Tab.0.right" timestamp="1593623921806">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="188" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591519466658" />
-    <state x="277" y="57" key="SettingsEditor" timestamp="1590744737541">
+    <state width="1515" height="175" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1593623921806" />
+    <state x="277" y="57" key="SettingsEditor" timestamp="1592202308798">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1590744737541" />
+    <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1592202308798" />
   </component>
 </project>

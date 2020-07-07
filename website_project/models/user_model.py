@@ -33,7 +33,7 @@ class User:
                                   "Hovione CP1 001",
                                   "Hovione CP1 002", "Hovione CP1 003",
                                   "Hovione CP1 004", "Crest CP1 001",
-                                  "All Stations"]
+                                  "Grace Hopper", "All Stations"]
 
         access = db.get(email)['access']
         if access == "ALL CHARGERS":

@@ -68,5 +68,11 @@
     "password": "84ef2cdaec7b340df298b7e693b96164e034ff2ecd626589f82a95fb1bf97825",
     "id": 9,
     "company_name": "Crest Solutions"
+  },
+  "joe.tugwell@epower.ie": {
+    "access": "ALL CHARGERS",
+    "password": "2ef998e66269d5f4e3afe748a90d6faadbb5221d376329fef0a8b2188f00b838",
+    "id": 10,
+    "company_name": "Domestic Customer"
   }
 }

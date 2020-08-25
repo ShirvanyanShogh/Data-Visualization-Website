@@ -39,8 +39,20 @@
     <link href="../static/build/css/custom.min.css" rel="stylesheet">
 
 
-  </head>
 
+  <style>
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+  }
+  </style>
+
+  </head>
   <body class="nav-md">
   <form>
     <div class="container body">
@@ -200,7 +212,7 @@
 
             <div class="col-md-5 col-lg-1">
               <div class="btn-group">
-                  <input  name = "price"  placeholder = "Price"  class="btn btn-default btn-block dropdown-toggle" required>
+                  <input  name = "price"  placeholder = "Price" type="number" step="any" min="0" class="btn btn-default btn-block dropdown-toggle" required>
               </div>
             </div>
 
@@ -465,7 +477,8 @@
                                   {% endfor %}],
                         datasets : [{
                             label: 'lll',
-                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
+                            "rgba(255,255,0,.2)","rgba(151, 211, 157, 1)","rgba(178, 225, 220, 1)","rgba(208, 134, 140, 1)"],
                             data : [{% for item in energy_per_key.values() %}
                                       {{item}},
                                     {% endfor %}],
@@ -513,7 +526,8 @@
                                   {% endfor %}],
                         datasets : [{
                             label: 'lll',
-                            backgroundColor: ["#3cba9f", "#3e95cd", "#8e5ea2","#e8c3b9","#c45850"],
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
+                            "rgba(255,255,0,.2)","rgba(151, 211, 157, 1)","rgba(178, 225, 220, 1)","rgba(208, 134, 140, 1)"],
                             data : [{% for item in energy_per_user.values() %}
                                       {{item}},
                                     {% endfor %}],
@@ -565,7 +579,8 @@
                                   {% endfor %}],
                         datasets : [{
                             label: 'lll',
-                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850",
+                            "rgba(255,255,0,.2)","rgba(151, 211, 157, 1)","rgba(178, 225, 220, 1)","rgba(208, 134, 140, 1)"],
                             data : [{% for item in energy_per_connector.values() %}
                                       {{item}},
                                     {% endfor %}],
@@ -591,10 +606,18 @@
                 </div>
               </div>
               <!-- /Pie chart  <<Per connector>>-->
-          </div>
+
           <!-- -------------------------------------------------------------------- -->
+          </div>
 
 
+          <br />
+          <div class="row">
+          <!--
+            <div class="col-md-2">
+               <button  class="btn btn-default"  type="button"><a href="{{ url_for('dashboard',station_name=name_chosen,month=month_chosen,year=year_chosen,price=price_chosen,download='download')}}"> Download as PDF</a></button>
+            </div>
+            -->
           </div>
         </div>
         <!-- /page content -->

@@ -39,7 +39,8 @@ class User:
         if access == "ALL CHARGERS":
             return charging_station_names
         else:
-            access.append("All Stations")
+            if "All Stations" not in access:
+                access.append("All Stations")
             return access
 
     @staticmethod

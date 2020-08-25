@@ -104,11 +104,14 @@ class Dashboard:
         energy_per_day = {}
         if self.ok:
             energy_per_key = \
-                dict(self.df.groupby(self.df['keyIdentifier']).sum()['energy'])
+                dict(self.df.groupby(self.df['keyIdentifier']).sum()['energy'].
+                     round(2))
             energy_per_user = \
-                dict(self.df.groupby(self.df['userId']).sum()['energy'])
+                dict(self.df.groupby(self.df['userId']).sum()['energy'].
+                     round(2))
             energy_per_connector = \
-                dict(self.df.groupby(self.df['connectorId']).sum()['energy'])
+                dict(self.df.groupby(self.df['connectorId']).sum()['energy'].
+                     round(2))
 
         return energy_per_key, energy_per_user, energy_per_connector
 
